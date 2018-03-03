@@ -1,0 +1,89 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.facebookLogin = undefined;
+
+  var _this = this;
+
+  var _reactNative = require(_dependencyMap[0], "react-native");
+
+  var _expo = require(_dependencyMap[1], "expo");
+
+  var _types = require(_dependencyMap[2], "./types");
+
+  var facebookLogin = exports.facebookLogin = function facebookLogin() {
+    return function _callee(dispatch) {
+      var token;
+      return regeneratorRuntime.async(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('fb_token'));
+
+            case 2:
+              token = _context.sent;
+
+              if (token) {
+                dispatch({
+                  type: _types.FACEBOOK_LOGIN_SUCCESS,
+                  payload: token
+                });
+              } else {
+                doFacebookLogin(dispatch);
+              }
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, _this);
+    };
+  };
+
+  var doFacebookLogin = function doFacebookLogin(dispatch) {
+    var _ref, type, token;
+
+    return regeneratorRuntime.async(function doFacebookLogin$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return regeneratorRuntime.awrap(_expo.Facebook.logInWithReadPermissionsAsync('835275036675626', {
+              permissions: ['public_profile']
+            }));
+
+          case 2:
+            _ref = _context2.sent;
+            type = _ref.type;
+            token = _ref.token;
+
+            if (!(type === 'cancel')) {
+              _context2.next = 7;
+              break;
+            }
+
+            return _context2.abrupt("return", dispatch({
+              type: _types.FACEBOOK_LOGIN_FAIL
+            }));
+
+          case 7:
+            _context2.next = 9;
+            return regeneratorRuntime.awrap(_reactNative.AsyncStorage.setItem('fb_token', token));
+
+          case 9:
+            dispatch({
+              type: _types.FACEBOOK_LOGIN_SUCCESS,
+              payload: token
+            });
+
+          case 10:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, _this);
+  };
+});

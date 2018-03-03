@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var FACEBOOK_LOGIN_SUCCESS = exports.FACEBOOK_LOGIN_SUCCESS = 'facebook_login_success';
+  var FACEBOOK_LOGIN_FAIL = exports.FACEBOOK_LOGIN_FAIL = 'facebook_login_fail';
+});

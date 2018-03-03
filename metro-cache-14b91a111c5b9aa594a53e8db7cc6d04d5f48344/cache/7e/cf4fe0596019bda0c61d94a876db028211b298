@@ -1,0 +1,147 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = require(_dependencyMap[1], "./node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "/home/bilal/Desktop/work/reactNative/jobs/App.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = require(_dependencyMap[3], "react-navigation");
+
+  var _AuthScreen = require(_dependencyMap[4], "./screens/AuthScreen");
+
+  var _AuthScreen2 = _interopRequireDefault(_AuthScreen);
+
+  var _WelcomeScreen = require(_dependencyMap[5], "./screens/WelcomeScreen");
+
+  var _WelcomeScreen2 = _interopRequireDefault(_WelcomeScreen);
+
+  var _MapScreen = require(_dependencyMap[6], "./screens/MapScreen");
+
+  var _MapScreen2 = _interopRequireDefault(_MapScreen);
+
+  var _DeckScreen = require(_dependencyMap[7], "./screens/DeckScreen");
+
+  var _DeckScreen2 = _interopRequireDefault(_DeckScreen);
+
+  var _SettingsScreen = require(_dependencyMap[8], "./screens/SettingsScreen");
+
+  var _SettingsScreen2 = _interopRequireDefault(_SettingsScreen);
+
+  var _ReviewScreen = require(_dependencyMap[9], "./screens/ReviewScreen");
+
+  var _ReviewScreen2 = _interopRequireDefault(_ReviewScreen);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    App: {
+      displayName: "App"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "/home/bilal/Desktop/work/reactNative/jobs/App.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var App = _wrapComponent("App")(function (_React$Component) {
+    _inherits(App, _React$Component);
+
+    function App() {
+      _classCallCheck(this, App);
+
+      return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    }
+
+    _createClass(App, [{
+      key: "render",
+      value: function render() {
+        var MainNavigator = (0, _reactNavigation.TabNavigator)({
+          welcome: {
+            screen: _WelcomeScreen2.default
+          },
+          auth: {
+            screen: _AuthScreen2.default
+          },
+          main: {
+            screen: (0, _reactNavigation.TabNavigator)({
+              map: {
+                screen: _MapScreen2.default
+              },
+              deck: {
+                screen: _DeckScreen2.default
+              },
+              review: {
+                screen: (0, _reactNavigation.StackNavigator)({
+                  review: {
+                    screen: _ReviewScreen2.default
+                  },
+                  settings: {
+                    screen: _SettingsScreen2.default
+                  }
+                })
+              }
+            }, {
+              tabBarPosition: 'bottom'
+            })
+          }
+        }, {
+          tabBarPosition: 'bottom'
+        });
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: styles.container,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          },
+          _react3.default.createElement(MainNavigator, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          })
+        );
+      }
+    }]);
+
+    return App;
+  }(_react3.default.Component));
+
+  exports.default = App;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff'
+    }
+  });
+});

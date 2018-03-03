@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _redux = require(_dependencyMap[0], "redux");
+
+  var _auth_reducers = require(_dependencyMap[1], "./auth_reducers");
+
+  var _auth_reducers2 = _interopRequireDefault(_auth_reducers);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  exports.default = (0, _redux.combineReducers)({
+    auth: _auth_reducers2.default
+  });
+});
